@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='css/add_group.css')}}" rel="stylesheet" />
+    <!-- <link href="./../static/css/add_group.css" rel="stylesheet" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:wght@400;500;600&family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet"> 
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./../static/css/nav.css" rel="stylesheet" />
+
+    <title>Add Group</title>
+    <link href="./../static/css/nav.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: black;">
+    <div class="nav">
+        <a class="navitem" href="{{ url_for('alltransaction') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">History</a>
+        <a class="navitem" href=".{{ url_for('all_groups') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">My Groups</a>
+        <a class="navitem" href="{{ url_for('all_pending') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Pending</a>
+        <a class="navitem" href="{{ url_for('login')}}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Login</a>
+        <a class="navitem" href="{{ url_for('transactions') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">New Transaction</a>
+        <img src="./../static/logo.png" height="75" width="90" alt="logo"/>
+      
+    </div>
+    <div class="heading">Sent Money to a Friend? Log it Here</div>
+    {% if added %}
+    <h1 class="alert" style="color:white;padding-left: 45%; padding-bottom: 5%; font-family: Josefin sans, sans-serif; 
+    ">Transaction Added!</h1>
+    {% endif %}
+    <div class="bd-example" style="padding-left:40%; width: 40%;"> 
+        <form method="post" action="{{ url_for('add_transaction') }}">
+          <div class="mb-3" >
+            <label for="receiver" style="font-family: Josefin sans, sans-serif; font-size: 200%;">Recipient:</label>
+            <select type="dropdown" class="form-control" id="formGroupExampleInput-lg" required style="text-align: center; 
+          font-family: Josefin sans, sans-serif; background-color:white; height: 15%;" name="receiver" id="receiver" placeholder="RECEPIENT">
+              {% for person in persons %}
+              <option value="{{ person.personid }}">{{ person.personname }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <br>
+          <div class="mb-3" style="color:wheat">
+            <label for="amount" style="font-family: Josefin sans, sans-serif; font-size: 200%;">Amount:</label>
+
+            <input type="text" class="form-control" id="formGroupExampleInput" required style="text-align: center; 
+            font-family: Josefin sans, sans-serif;" type="number" name="amount" id="amount" min="0" placeholder="AMOUNT">
+          </div>
+          <br>
+          <div class="col-12" style="padding-left: 7%;">
+            <form method="get" action="{{ url_for('person_to_person') }}">
+              <input class="image-button" type="image" value="Submit" class="btn btn-primary" label="Submit Log" style="width:25%;" name="submit" title="Submit" src="{{ url_for('static', filename='money.png')}}" alt="Submit"/>
+            </form>
+          </div>
+      </form>
+    </div>
+</body>
+</html>
+

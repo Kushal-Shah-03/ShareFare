@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="{{ url_for('static', filename='css/pending_transactions.css')}}" rel="stylesheet" />
+  <!-- <link href="./../static/css/pending_transactions.css" rel="stylesheet" /> -->
+  <link href="./../static/css/nav.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+ <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="./../static/css/nav.css" rel="stylesheet" />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: black;">
+ <div class="nav">
+     <a class="navitem" href="{{ url_for('alltransaction') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">History</a>
+     <a class="navitem" href=".{{ url_for('all_groups') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">My Groups</a>
+     <a class="navitem" href="{{ url_for('all_pending') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Pending</a>
+     <a class="navitem" href="{{ url_for('login')}}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Login</a>
+     <a class="navitem" href="{{ url_for('transactions') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">New Transaction</a>
+     <img src="./../static/logo.png" height="75" width="90" alt="logo"/>
+   
+ </div>
+ {% if transactions %}
+    <div class="heading">PENDING TRANSACTIONS</div>
+    <div class="list" style="background-color: white;">
+
+      <div class="list-item">
+        <div class="song-info">
+            <div class="song-title">TRANSACTION TO:</div>
+            <div class="album">TYPE</div>
+            <div class="artist">AMOUNT</div>
+        </div>
+    </div>
+
+    {% for transaction in transactions %}
+      
+      <div class="list-item">
+        <div class="song-info">
+          <div class="song-title">{{ transaction.person2 }}</div>
+          {% if transaction.flag %}
+          <div class="album" style="color:green">lent</div>
+          {% else %}
+          <div class="album" style="color:red">borrowed</div>
+          {% endif %}
+          <div class="artist">{{ transaction.amount }}</div>
+        </div>
+      </div>      
+    {% endfor %}
+    </div>
+    {% else %}
+    <p style="color:white; font-size:3vh;font-weight:bold;text-align:center;padding-top:5vh;">No Pending Transactions</p>
+    {% endif %}
+    {% if finalval > 0 %}
+    <p style="color:green; font-size:3vh;font-weight:bold;text-align:center;padding-top:5vh;"> Total Pending Amount: {{ finalval }}</p>
+    {% elif finalval < 0 %}
+    <p style="color:red; font-size:3vh;font-weight:bold;text-align:center;padding-top:5vh;"> Total Pending Amount: {{ finalval }}</p>
+    {% else %}
+    <p style="color:white; font-size:3vh;font-weight:bold;text-align:center;padding-top:5vh;"> Total Pending Amount: {{ finalval }}</p>
+    {% endif %}
+  </body> 
+</html>

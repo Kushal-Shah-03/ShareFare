@@ -1,0 +1,101 @@
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+.alert {
+    text-align: center; 
+    font-family: Josefin sans, sans-serif; 
+    padding-top: 7%;
+    padding-bottom: 5%;
+    color:white;
+    font-size: 150%;
+    height: 95%;
+}
+#receiver {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+text {
+    color: black;
+}
+
+label  {
+    color: white;
+}
+
+select {
+    background-color: white;
+    color: black;
+}
+
+input  {
+    background-color: white;
+}
+
+.container {
+    text-align: center;;
+}
+
+
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+.heading {
+    text-align: center; 
+    font-family: Josefin sans, sans-serif; 
+    padding-top: 7%;
+    padding-bottom: 5%;
+    color:white;
+    font-size: 250%;
+    height: 95%;
+}
+
+text {
+    color: black;
+}
+
+label  {
+    color: white;
+}
+
+input  {
+    background-color: white;
+}
+
+.container {
+    text-align: center;;
+}
+
+.newgroup {
+    width: 100%;
+}
+.newgroup a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .newgroup a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: green;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+  }
+
+  .newgroup a:hover::after {
+    transform: scaleX(1);
+  }

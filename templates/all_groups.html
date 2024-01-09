@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <link href="{{ url_for('static', filename='css/view_group.css')}}" rel="stylesheet" /> -->
+	<link href="./../static/css/all_groups.css" rel="stylesheet" />
+	<link href="./../static/css/nav.css" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+ 	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<title>YOUR GROUPS</title>
+    <link href="./../static/css/nav.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: black;">
+    <div class="nav">
+        <a class="navitem" href="{{ url_for('alltransaction') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">History</a>
+        <a class="navitem" href=".{{ url_for('all_groups') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">My Groups</a>
+        <a class="navitem" href="{{ url_for('all_pending') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Pending</a>
+		<a class="navitem" href="{{ url_for('login')}}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Login</a>
+        <a class="navitem" href="{{ url_for('transactions') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">New Transaction</a>
+        <img src="./../static/logo.png" height="75" width="90" alt="logo"/>
+      
+    </div>
+	<style>
+		.elem:link {
+		  color: white;
+		  background-color: transparent;
+		  font-weight:bold;
+		  text-decoration: none;
+		  font-size:2.5vh;
+		}
+		
+		.elem:visited {
+		  color: white;
+		  background-color: transparent;
+		  text-decoration: none;
+		  font-weight:bold;
+		  font-size:2.5vh;
+		}
+		
+		.elem:hover {
+		  color: #008080;
+		  background-color: transparent;
+		  text-decoration: underline;
+		  font-weight:bold;
+		  font-size:3vh;
+		}
+		</style> 
+	<div class="heading">MY GROUPS</div>
+	<table class="group-list">
+		<thead>
+			<tr>
+				<th style="font-size: 125%;">GROUP NAME</th>
+				<th style="font-size: 125%;" >MEMBERS</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for group in groups %}
+				<tr>
+					<td><a class="elem" href="{{ url_for('view_group',groupid=group.groupid) }}">{{ group.groupname }}</td>
+					<td>
+						<ul>
+							{% for person in group.members %}
+								<li>{{ person.personname }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>

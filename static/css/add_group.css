@@ -1,0 +1,31 @@
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+.heading {
+    text-align: center; 
+    font-family: Josefin sans, sans-serif; 
+    padding-top: 7%;
+    padding-bottom: 5%;
+    color:white;
+    font-size: 250%;
+    height: 95%;
+}
+
+text {
+    color: black;
+}
+
+label  {
+    color: white;
+}
+
+input  {
+    background-color: white;
+}
+
+.container {
+    text-align: center;;
+}

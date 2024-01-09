@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="./../static/css/nav.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/person_to_group.css')}}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+    <title>Person-to-Group Transactions</title>
+  </head>
+  <body>
+    <div class="nav">
+      <a class="navitem" href="{{ url_for('alltransaction') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">History</a>
+      <a class="navitem" href=".{{ url_for('all_groups') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">My Groups</a>
+      <a class="navitem" href="{{ url_for('all_pending') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Pending</a>
+      <a class="navitem" href="{{ url_for('login')}}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Login</a>
+      <a class="navitem" href="{{ url_for('transactions') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">New Transaction</a>
+      <img src="./../static/logo.png" height="75" width="90" alt="logo"/>
+  </div>
+    <div class="heading">Log Your Contribution For A Group</div>
+    {% if added %}
+    <h1 class="alert">Transaction Added!</h1>
+    {% endif %}
+    <div class="bd-example" style="padding-left:40%; width: 40%; align-items: center;"> 
+      <form method="post" action="{{ url_for('add_transaction_group') }}">
+          <div class="mb-3" >
+          <label for="receiver" style="font-family: Josefin sans, sans-serif; font-size: 200%;">Group:</label>
+          <select type="dropdown" class="form-control" id="formGroupExampleInput" required style="text-align: center; 
+          font-family: Josefin sans, sans-serif; background-color:white" name="receiver" id="receiver" placeholder="RECEPIENT">
+            {% for group in groups %}
+              <option value="{{ group.groupid }}">{{ group.groupname }}</option>
+            {% endfor %}
+          </select>
+          <div class="mb-3" style="color:wheat">
+            <label for="amount" style="font-family: Josefin sans, sans-serif; font-size: 200%;">Amount:</label>
+
+            <input type="text" class="form-control" id="formGroupExampleInput" required style="text-align: center; 
+            font-family: Josefin sans, sans-serif;" type="number" name="amount" id="amount" min="0" placeholder="AMOUNT">
+          </div>
+          <br>
+          <div class="col-12" style="padding-left: 7%;">
+            <form method="get" action="{{ url_for('person_to_person') }}">
+              <input class="image-button" type="image" value="Submit" class="btn btn-primary" label="Submit Log" style="width:25%;" name="submit" title="Submit" src="{{ url_for('static', filename='money.png')}}" alt="Submit"/>
+            </form>
+          </div>
+        </form>
+          <div class="newgroup" style="color:white;font-family: Josefin sans, sans-serif; padding-right:25%; padding-top: 5%;"><a href="{{url_for('add_group')}}">Not Listed? Make a New Group Here!</a></div>
+      </div>  
+      </form>
+    </div>
+  </body>
+</html>

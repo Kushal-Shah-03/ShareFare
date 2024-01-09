@@ -1,0 +1,74 @@
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+text {
+    color: black;
+}
+
+ul {
+    color: white;
+}
+
+.container {
+    text-align: center;;
+}
+
+.heading {
+    text-align: center; 
+    font-family: Josefin sans, sans-serif; 
+    padding-top: 7%;
+    padding-bottom: 5%;
+    color:white;
+    font-size: 250%;
+    height: 95%;
+}
+
+.group-list {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Josefin sans, sans-serif;
+    width: 80%;
+    border-collapse: collapse;
+    font-size: 16px;
+    line-height: 1.5;
+    color:white;
+  }
+  
+  .group-list tbody tr:first-child {
+    border-top: none;
+  }
+  
+  .group-list thead tr th,
+  .group-list tbody tr td {
+    font-family: Josefin sans, sans-serif;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+  }
+  .group-list thead tr th {
+    text-align: center;
+
+    background-color: rgba(42, 47, 43, 0.818);
+  }
+  
+
+  .group-list tbody tr:nth-child(even) {
+    background-color:rgba(47, 42, 42, 0.818);
+  }
+  ul{
+    font-family: Josefin sans, sans-serif; 
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }

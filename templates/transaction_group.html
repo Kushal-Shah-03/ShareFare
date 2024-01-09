@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Add Transaction To Group</title>
+    <link href="./../static/css/nav.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/transaction_group.css')}}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: black;">
+    <div class="nav">
+        <a class="navitem" href="{{ url_for('alltransaction') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">History</a>
+        <a class="navitem" href=".{{ url_for('all_groups') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">My Groups</a>
+        <a class="navitem" href="{{ url_for('all_pending') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Pending</a>
+        <a class="navitem" href="{{ url_for('login')}}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Login</a>
+        <a class="navitem" href="{{ url_for('transactions') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">New Transaction</a>
+        <img src="./../static/logo.png" height="75" width="90" alt="logo"/>
+      
+    </div>
+    
+    <div class="heading">How much are you owed?</div>
+    
+    <div class="bd-example" style="padding-left:43%; width: 40%;"> 
+        <form method="POST" action="{{ url_for('add_transaction_groups', groupid=groupid) }}">
+            {% for person in persons %}
+            <div class="mb-3" style="margin-bottom: 2%;">
+                <input type="number" name="{{ person.personid }}" required placeholder="{{ person.personname }}" style="font-family: Josefin sans, sans-serif;">
+                <br>
+            </div>
+            {% endfor %}
+
+            <div class="col-12" style="padding-left: 7%;">
+                <button type="submit" value="Submit" class="btn btn-primary" style="width:25%; text-align: center; font-family: Josefin sans, sans-serif; color: white;">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

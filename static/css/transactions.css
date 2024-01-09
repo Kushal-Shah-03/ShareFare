@@ -1,0 +1,77 @@
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+text {
+    color: black;
+}
+
+button  {
+    color: black;
+    background-color: white;
+}
+
+input  {
+    background-color: white;
+}
+
+.container {
+    text-align: center;
+display: flex;
+flex-wrap: wrap;
+}
+
+.image {
+width: 50%;
+}
+
+.toptext {
+    font-family: Josefin sans, sans-serif;
+    font-size: 250%;
+    height: 25%;
+    margin-top: 6%;
+    margin-bottom: 4%;
+    text-align: center;
+    color:white
+
+}
+
+.img {
+    border-radius: 48%;
+    width:60%;
+    height: 60%;
+}
+
+
+.title {
+    font-family: Josefin sans, sans-serif;
+    font-size: 200%;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    position: relative;
+}
+
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: green;
+    transition: width 0.3s ease-out;
+    width: 0%;
+  }
+  
+  .title:hover::after {
+    width: 100%;
+  }
+  

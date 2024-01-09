@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/add_user.css')}}" rel="stylesheet" />
+    <title>Add User</title>
+    <link href="./../static/css/nav.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;600&display=swap" rel="stylesheet">
+  </head>
+  <body style="background-color: black;">
+      <div class="nav">
+          <a class="navitem" href="{{ url_for('alltransaction') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">History</a>
+          <a class="navitem" href=".{{ url_for('all_groups') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">My Groups</a>
+          <a class="navitem" href="{{ url_for('all_pending') }}" id="current" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Pending</a>
+          <a class="navitem" href="{{ url_for('login')}}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">Login</a>
+          <a class="navitem" href="{{ url_for('transactions') }}" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">New Transaction</a>
+          <img src="./../static/logo.png" height="75" width="90" alt="logo"/>
+      </div>
+    <h1>Add User</h1>
+    <div class="container">
+      <form method="POST" action="{{ url_for('add_user') }}">
+        <label for="personname">Name:</label>
+        <input type="text" id="personname" name="personname"><br><br>
+        <input type="submit" value="Add User">
+      </form>
+  </div>
+  </body>
+</html>

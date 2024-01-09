@@ -1,0 +1,78 @@
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+.alert {
+    text-align: center; 
+    font-family: Josefin sans, sans-serif; 
+    padding-top: 7%;
+    padding-bottom: 5%;
+    padding-left: 40%;
+    color:white;
+    font-size: 150%;
+    height: 95%;
+}
+#receiver {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+text {
+    color: black;
+}
+
+label  {
+    color: white;
+}
+
+select {
+    background-color: white;
+    color: black;
+}
+
+input  {
+    background-color: white;
+}
+
+.container {
+    text-align: center;;
+}
+
+
+* {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    vertical-align: center;
+}
+
+.heading {
+    text-align: center; 
+    font-family: Josefin sans, sans-serif; 
+    padding-top: 7%;
+    padding-bottom: 5%;
+    color:white;
+    font-size: 250%;
+    height: 95%;
+}
+
+text {
+    color: black;
+}
+
+label  {
+    color: white;
+}
+
+input  {
+    background-color: white;
+}
+
+.container {
+    text-align: center;;
+}
